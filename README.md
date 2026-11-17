@@ -10,6 +10,7 @@ The project uses **Playwright** with **JavaScript** and follows the **Page Objec
 - JavaScript (Node.js)
 - Page Object Model
 - Playwright `request` fixture for API testing
+- [Postman](https://www.postman.com/) for manual and scripted API testing
 
 ## Test coverage
 
@@ -39,6 +40,11 @@ The project uses **Playwright** with **JavaScript** and follows the **Page Objec
 
 > JSONPlaceholder is a fake API: it does not really save, change or delete data. A real DELETE test would also verify the post is gone (GET → 404); this check is included as a comment in the test.
 
+### Postman collection (`postman/`)
+- The same CRUD scenarios as a Postman collection with `pm.test` scripts (10 tests)
+- Uses a `{{baseUrl}}` collection variable
+- To run it: in Postman click **Import**, select the file from `postman/`, then run the collection with the **Collection Runner**
+
 ## Project structure
 
 ```
@@ -52,6 +58,7 @@ tests/                   Test files
   cart.spec.js
   checkout-form.spec.js
   api.spec.js
+postman/                 Postman collection (API tests)
 playwright.config.js     Playwright configuration
 ```
 
@@ -87,5 +94,6 @@ npx playwright show-report
 - `beforeEach` hooks to avoid repeated setup
 - Page Object Model with JavaScript classes
 - API testing: HTTP methods (CRUD), status codes, checking JSON response bodies
+- Postman: collections, variables, test scripts and the Collection Runner
 - Verifying state, not just status codes (and recognizing test environment limitations)
 - Git and GitHub basics
